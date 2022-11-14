@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class Mesage {
+  constructor(name, mesage) {
+    this.name = name;
+    this.time = gettime();
+    this.mesage = mesage;
+  }
+
+  toString() {
+    return `${this.time} ${this.name}: ${this.mesage}`;
+  }
+
+  
+}
+
+class Mesenger {
+  constructor() {
+    this.history = [];
+   
+  }
+
+  show_history() {
+    this.history.forEach((mesage) => {
+      console.log(mesage.toString());
+    });
+  }
+
+  send(name, text) {
+    const mesage = new Mesage(name, text);
+    this.history.push(mesage);
+   
+  }
+}
+
+function gettime() {
+  let now = new Date();
+  return `${now.getHours()}:${now.getMinutes()}`;
+}
+
+
+let mesenger = new Mesenger()
+mesenger.send('Adil', 'ilk mesaj')
+mesenger.send('Məryəm', 'İkinci mesaj')
+mesenger.show_history()
+
+</script>
+</html>
